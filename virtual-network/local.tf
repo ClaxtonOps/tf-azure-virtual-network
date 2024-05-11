@@ -2,6 +2,9 @@ provider "azurerm" {
   features {}
 }
 
+data "azurerm_resource_group" "rg" {
+  name = var.name_resource_group
+}
 
 locals {
   prefix        = var.name_prefix
@@ -46,11 +49,5 @@ locals {
     }
   }
 
-
-  common_tags = {
-    Environment = "Dev"
-    Owner       = "Paulo H"
-    Department  = "DevOps"
-  }
 
 }

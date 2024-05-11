@@ -1,5 +1,5 @@
 output "name_resource_group" {
-    value = data.azurerm_resource_group.rg.name
+  value = data.azurerm_resource_group.rg.name
 }
 
 output "name_vnet" {

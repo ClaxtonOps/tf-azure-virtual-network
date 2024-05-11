@@ -1,26 +1,35 @@
 Recursos de redes Azure dinâmicos: Subnets, Bastion, Nat Gateway, NIC, Route Table, & Public IP.
 
 ## Como utilizar
-Crie um Resource Group via CLI Azure:
+Crie um Grupo de Recurso via CLI Azure:
 ```
 az group create -l <localização> -n <nome_do_rg>
 ```
+Para extrair os valores "Name" e "Location" usamos o bloco Datasource, para isso é necessário definir o nome do Grupo de Recurso dentro do modulo usando a variável "name_resource_group".
 
-Após criar o Resource Group via Azure CLI, vá em variable "nome_do_resource_group" e defina o nome do RG que foi criado.
-
-Tag padrão para os recursos. Em variable procure "common_tags" e mude os valores conforme você deseja. Exemplo:
+## Exemplo de uso
 ```
-variable "common_tags" {
-  type        = map(string)
-  description = "Common tags to be applied to resources"
+module "virtual-network" {
+  source = "./virtual-network"
 
-  default = { 
-    Environment = "Dev" // Ambiente
-    Owner       = "Paulo H" // Nome do responsável por criar o recurso
-    Department  = "DevOps" // Departamento do funcionário
+  name_resource_group = "LAB" // Nome do Resource Group criado via CLI.
+  name_prefix         = "application" // Prefixo de nome para os recursos.
+
+  vnet_cidr = "10.0.0.0/16"
+
+  backend_subnet_cidr  = "10.0.10.0/24"
+  frontend_subnet_cidr = "10.0.20.0/24"
+  database_subnet_cidr = "10.0.30.0/24"
+  bastion_subnet_cidr  = "10.0.40.0/27"
+
+  common_tags = {
+    Environment = "Dev"
+    Owner       = "Paulo H"
+    Department  = "DevOps"
   }
 }
 ```
+
 
 ## Requirements
 
@@ -34,7 +43,7 @@ No requirements.
 
 ## Modules
 
-No modules.
+virtual-network
 
 ## Resources
 
