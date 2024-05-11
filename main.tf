@@ -6,7 +6,7 @@
 module "virtual-network" {
   source = "./virtual-network"
 
-  name_resource_group = "fodase"
+  name_resource_group = "LAB"
   name_prefix         = "application"
 
   vnet_cidr = "10.0.0.0/16"
