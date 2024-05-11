@@ -31,10 +31,9 @@ module "virtual-network" {
 ```
 
 ## Conectar no Bastion usando CLI.
-"Este artigo ajuda você a se conectar por meio do Azure Bastion a uma VM em uma VNet usando o cliente nativo em seu computador Linux local. O recurso de cliente nativo permite que você se conecte às VMs de destino por meio do Bastion usando a CLI do Azure e expande as opções de entrada para incluir o par de chaves SSH local e o Microsoft Entra ID.
+"Este artigo ajuda você a se conectar por meio do Azure Bastion a uma VM em uma VNet usando o cliente nativo em seu computador Linux local. O recurso de cliente nativo permite que você se conecte às VMs de destino por meio do Bastion usando a CLI do Azure e expande as opções de entrada para incluir o par de chaves SSH local e o Microsoft Entra ID."
 
 https://learn.microsoft.com/pt-br/azure/bastion/connect-vm-native-client-linux
-[Conectar no Bastion usando terminal](https://learn.microsoft.com/pt-br/azure/bastion/connect-vm-native-client-linux)
 
 ## Requirements
 
