@@ -1,5 +1,5 @@
 data "azurerm_resource_group" "rg" {
-  name = "LAB"
+  name = var.name_resource_group
 }
 
 resource "azurerm_virtual_network" "main" {
@@ -69,7 +69,7 @@ resource "azurerm_public_ip" "pip" {
 }
 
 resource "azurerm_bastion_host" "bastion" {
-  name = "${local.prefix}-Bastion"
+  name = "${local.prefix}-${data.azurerm_resource_group.rg.name}-bastion"
 
   resource_group_name = data.azurerm_resource_group.rg.name
   location            = data.azurerm_resource_group.rg.location
@@ -86,7 +86,7 @@ resource "azurerm_bastion_host" "bastion" {
 }
 
 resource "azurerm_nat_gateway" "nat" {
-  name = "${local.prefix}-NAT"
+  name = "${local.prefix}-${data.azurerm_resource_group.rg.name}-NAT"
 
   resource_group_name = data.azurerm_resource_group.rg.name
   location            = data.azurerm_resource_group.rg.location
@@ -108,7 +108,7 @@ resource "azurerm_subnet_nat_gateway_association" "nat_assc_subnet" {
 }
 
 resource "azurerm_network_interface" "nic" {
-  name = "${local.prefix}-NIC"
+  name = "${local.prefix}-${data.azurerm_resource_group.rg.name}-NIC"
 
   resource_group_name = data.azurerm_resource_group.rg.name
   location            = data.azurerm_resource_group.rg.location
