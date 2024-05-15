@@ -17,7 +17,7 @@ resource "azurerm_virtual_network" "main" {
   }
   tags = var.common_tags
 }
-
+######################## ROUTE TABLE ##############################
 /*
 resource "azurerm_route_table" "dynamic_route_table" {
   for_each = local.routes
@@ -43,6 +43,7 @@ resource "azurerm_subnet_route_table_association" "subnet_association" {
 }
 
 */
+############################################################################
 
 resource "azurerm_public_ip" "pip" {
   for_each = {
