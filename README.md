@@ -23,9 +23,9 @@ module "virtual-network" {
   bastion_subnet_cidr  = "10.0.40.0/27"
 
   common_tags = {
-    Environment = "Dev"
-    Owner       = "Paulo H"
-    Department  = "DevOps"
+    Environment = "Stage"
+    Owner       = "Paulo Henrique"
+    Department  = "SRE"
   }
 }
 ```
